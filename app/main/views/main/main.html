@@ -1,0 +1,39 @@
+<:Title>
+  {{ template main_path, "title", {controller_group: 'main'} }}
+
+<:Body>
+  <div class="container">
+
+    <header>
+      <ul class="nav nav-pills pull-right">
+        <:nav href="/" text="Home" />
+        <:nav href="/about" text="About" />
+        <:user-templates:menu />
+      </ul>
+    </header>
+
+    <section class="intro">
+      <div class="content">
+        <:volt:notices />
+        {{ template main_path, 'body', {controller_group: 'main'} }}
+     </div>
+    </section>
+
+
+    <section>
+      <div class="content">
+
+     </div>
+    </section>
+
+    <footer>
+      <p>&copy; Podder 2014</p>
+    </footer>
+
+  </div>
+
+<:Nav>
+  <li class="{{ if url.path.split('/')[1] == attrs.href.split('/')[1] }}active{{ end }}">
+    <a href="{{ attrs.href }}">{{ attrs.text }}</a>
+  </li>
+
