@@ -149,6 +149,7 @@ PLATFORMS
 
 DEPENDENCIES
   bson_ext (~> 1.9.0)
+  nokogiri
   thin (~> 1.6.0)
   volt (= 0.8.22)
   volt-bootstrap

@@ -10,13 +10,16 @@ class MainController < Volt::ModelController
   end
 
   def current_podcast
-   store._podcasts[params._index.or(0).to_i]
+    promise = LoggingTasks.log('Hello World from the server!')
+    store._podcasts[params._index.or(0).to_i]
   end
 
-  def formatCurrentDate current_date
-    r = current_date.match('^\d{4}-\d{2}-\d{2}')[0] if current_date.nil?
-    d = r[0]
-    d
+  def get_podcast_url podcast_id
+    store._medias.find({podcast_id: podcast_id}).limit(5)
+  end
+
+  def formatDate string
+    `new Date(Date.parse(#{string}))`
   end
 
   private

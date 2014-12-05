@@ -23,8 +23,21 @@
     <h3>{{ current_podcast._genre }}</h3>
     <h2><a href="{{current_podcast._feedUrl}}">{{ current_podcast._title }}</a></h2>
     <img src="{{ current_podcast._imageUrl }}" alt="{{ current_podcast._title }}">
-    <p>Datum: {{ formatCurrentDate(current_podcast._releaseDate) }}</p>
-    <p>{{ current_podcast._description }}</p>
     <p>{{ current_podcast._copy }}</p>
+    <p>Datum {{ formatDate(current_podcast._releaseDate).strftime("%Y-%m-%d")}}</p>
+    <p>{{ current_podcast._description }}</p>
+
+    <hr>
+
+    <table>
+      {{ get_podcast_url(current_podcast._link_id).each do |media| }}
+      <tr>
+        <td>{{ formatDate(media._pubDate).strftime("%Y-%m-%d")}}</td>
+        <td><a href="{{ media._url }}">{{ media._title }}</a></td>
+      </tr>
+      {{ end }}
+    </table>
+
+    <hr>
   </div>
   {{ end }}
