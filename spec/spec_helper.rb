@@ -1,5 +1,7 @@
 # Volt sets up rspec and capybara for testing.
 require 'volt/spec/setup'
+require 'capybara/cucumber'
+require 'capybara/poltergeist'
 Volt.spec_setup
 
 RSpec.configure do |config|
@@ -11,4 +13,16 @@ RSpec.configure do |config|
   # the seed, which is printed after each run.
   #     --seed 1234
   config.order = 'random'
+end
+
+Capybara.default_driver = :poltergeist
+Capybara.register_driver :poltergeist do |app|
+  options = {
+    js_errors: true,
+    timeout: 120,
+    debug: false,
+    phantomjs_options: ['--load-images=no', '--disk-cache=false'],
+    inspector: true
+  }
+  Capybara::Poltergeist::Driver.new(app, options)
 end
