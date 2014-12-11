@@ -6,11 +6,11 @@ class MainController < Volt::ModelController
   end
 
   def get_podcasts
+    promise = LoggingTasks.log('Hello World from the server!')
     store._podcasts
   end
 
   def current_podcast
-    promise = LoggingTasks.log('Hello World from the server!')
     store._podcasts[params._index.or(0).to_i]
   end
 

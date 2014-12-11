@@ -27,17 +27,12 @@
     <p>Datum {{ formatDate(current_podcast._releaseDate).strftime("%Y-%m-%d")}}</p>
     <p>{{ current_podcast._description }}</p>
 
-    <hr>
+    <audio preload></audio>
 
-    <table>
+    <ol class="playlist">
       {{ get_podcast_url(current_podcast._link_id).each do |media| }}
-      <tr>
-        <td>{{ formatDate(media._pubDate).strftime("%Y-%m-%d")}}</td>
-        <td><a href="{{ media._url }}">{{ media._title }}</a></td>
-      </tr>
+        <li><a href="#" data-src="{{ media._url }}">{{ media._title }} <span class="pub-date">{{ formatDate(media._pubDate).strftime("%Y-%m-%d")}}</span></a></li>
       {{ end }}
-    </table>
-
-    <hr>
+    </ol>
   </div>
   {{ end }}

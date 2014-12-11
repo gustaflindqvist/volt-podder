@@ -176,3 +176,41 @@ input {
     padding-right:70px;
  }
 }
+
+ol {
+  list-style: decimal-leading-zero inside;
+  margin: 0;
+  padding: 0;
+  li {
+    &:first-child {
+      border-top: 1px solid #ccc !important;
+    }
+    &.playing:before {
+      content: '♬';
+      width: 14px;
+      height: 14px;
+      padding: 3px;
+      line-height: 14px;
+      margin: 0px;
+      position: absolute;
+      left: -24px;
+      top: 9px;
+      color: #000;
+      font-size: 13px;
+      text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.2);
+    }
+    position: relative;
+    margin: 0px;
+    padding: 9px 2px 10px;
+    border-bottom: 1px solid #ccc;
+    cursor: pointer;
+    a {
+      text-decoration: none;
+    }
+    .pub-date {
+      font-size: 12px;
+      color: #ddd;
+      background: #999;
+    }
+  }
+}

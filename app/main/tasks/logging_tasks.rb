@@ -4,6 +4,6 @@
 # represent those methods as class methods
 class LoggingTasks < Volt::TaskHandler
   def log(message)
-    puts message
+    puts "#{message} #{DateTime.now}"
   end
 end
