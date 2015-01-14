@@ -6,7 +6,7 @@
   <p>Volt with Podder.</p>
 
   <div style="float: left">
-  <h1>Top five podcasts</h1>
+  <h1>Top five podcasts.</h1>
   {{ get_podcasts.each do |pod1| }}
     <img src="{{ pod1._imageUrl }}" class="grow" alt="{{ pod1._title }}" e-click="params._index = index">
   {{ end }}

@@ -10,8 +10,13 @@ Volt.configure do |config|
   # file or with an environment variable (DB_NAME for example).
   config.db_driver = 'mongo'
   config.db_name = (config.app_name.downcase + '_' + Volt.env.to_s)
-  config.db_host = 'localhost'
-  config.db_port = 27017
+
+  if ENV['MONGOHQ_URL'].present?
+    config.db_uri = ENV['MONGOHQ_URL']
+  else
+    config.db_host = 'localhost'
+    config.db_port = 27017
+  end
 
   # Compression options
 

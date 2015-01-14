@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
+ruby "2.1.5" # specify a Ruby version
 
-gem 'volt', '0.8.22'
+gem 'volt'
 
 gem 'nokogiri'
 
@@ -18,6 +19,10 @@ gem 'volt-user-templates'
 group :development do
   gem 'byebug'
   gem 'rubocop', require: false
+end
+
+group :test do
+  gem 'rubocop-checkstyle_formatter', require: false
 end
 
 # Server for MRI
